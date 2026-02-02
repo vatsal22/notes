@@ -10,14 +10,14 @@ Show the most recently modified Apple Notes.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Show recent notes using the self-contained wrapper:
 
-2. Get recent notes:
 ```bash
-notes recent ${ARGUMENTS:+-l $ARGUMENTS}
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" recent ${ARGUMENTS:+-l $ARGUMENTS}
 ```
 
 ## Examples

@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
+./setup.sh          # Install dependencies (first-time setup for plugin usage)
 pnpm build          # Compile TypeScript to dist/
 pnpm dev            # Watch mode for development
 pnpm typecheck      # Type check without emitting
@@ -42,6 +43,7 @@ src/
 - `better-sqlite3`: Read Apple Notes DB and create FTS5 index
 - `minisearch`: Fuzzy search with typo tolerance
 - `@modelcontextprotocol/sdk`: MCP server for Claude Code integration
+- `tsx`: Execute TypeScript files directly (for plugin skills)
 
 ## Claude Code Plugin
 
@@ -60,8 +62,24 @@ commands/
 ├── folder.md            # /notes:folder slash command
 ├── read.md              # /notes:read slash command
 ├── create.md            # /notes:create slash command
-└── delete.md            # /notes:delete slash command
+├── delete.md            # /notes:delete slash command
+└── edit.md              # /notes:edit slash command
 ```
+
+**Plugin Setup:**
+
+Skills execute TypeScript source directly via `npx tsx` instead of requiring global npm installation.
+
+1. After cloning/installing the plugin, run setup script:
+   ```bash
+   cd /path/to/notes-cli
+   ./setup.sh
+   ```
+
+2. Skills are self-contained and automatically:
+   - Find the plugin directory via relative paths (no environment variables needed)
+   - Install dependencies if missing (first-time only)
+   - Execute commands via `skills/notes/scripts/notes-cli.sh`
 
 ## Releasing
 

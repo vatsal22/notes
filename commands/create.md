@@ -10,14 +10,14 @@ Create a new note in Apple Notes.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Create the note using the self-contained wrapper:
 
-2. Create the note:
 ```bash
-notes create "$ARGUMENTS"
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" create "$ARGUMENTS"
 ```
 
 ## Examples

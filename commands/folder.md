@@ -10,14 +10,14 @@ List all notes in a specific Apple Notes folder.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+List notes in folder using the self-contained wrapper:
 
-2. List notes in folder:
 ```bash
-notes folder "$ARGUMENTS"
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" folder "$ARGUMENTS"
 ```
 
 ## Examples

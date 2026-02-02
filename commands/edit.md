@@ -10,14 +10,14 @@ Edit an existing note in Apple Notes. The created timestamp is preserved.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Edit the note using the self-contained wrapper:
 
-2. Edit the note:
 ```bash
-notes edit $ARGUMENTS
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" edit $ARGUMENTS
 ```
 
 ## Examples
@@ -28,6 +28,6 @@ notes edit $ARGUMENTS
 
 ## Workflow
 
-1. Find the note: `notes search "keyword"` or `notes recent`
-2. Read current content: `notes read <id>`
-3. Edit the note: `notes edit <id> --body "new content"`
+1. Find the note: Use `/notes:search "keyword"` or `/notes:recent`
+2. Read current content: Use `/notes:read <id>`
+3. Edit the note: Use `/notes:edit <id> --body "new content"`

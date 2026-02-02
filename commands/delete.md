@@ -10,14 +10,14 @@ Delete a note from Apple Notes by its title.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Delete the note using the self-contained wrapper:
 
-2. Delete the note:
 ```bash
-notes delete "$ARGUMENTS"
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" delete "$ARGUMENTS"
 ```
 
 ## Examples

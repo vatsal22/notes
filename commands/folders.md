@@ -10,14 +10,14 @@ List all Apple Notes folders with note counts.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+List folders using the self-contained wrapper:
 
-2. List folders:
 ```bash
-notes folders ${ARGUMENTS:+-l $ARGUMENTS}
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" folders ${ARGUMENTS:+-l $ARGUMENTS}
 ```
 
 ## Examples

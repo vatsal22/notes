@@ -10,14 +10,14 @@ Read the full content of an Apple Note by its ID.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Read the note using the self-contained wrapper:
 
-2. Read the note:
 ```bash
-notes read $ARGUMENTS
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" read $ARGUMENTS
 ```
 
 ## Examples

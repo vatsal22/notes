@@ -10,14 +10,14 @@ Search through Apple Notes using fuzzy matching.
 
 ## Instructions
 
-1. Check if the notes CLI is installed:
-```bash
-command -v notes || pnpm add -g @cardmagic/notes
-```
+Run the search using the self-contained wrapper:
 
-2. Run the search:
 ```bash
-notes search "$ARGUMENTS"
+# Get absolute path to wrapper script
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../skills/notes/scripts" && pwd)/notes-cli.sh"
+
+# Execute command
+"$SCRIPT_PATH" search "$ARGUMENTS"
 ```
 
 ## Examples
